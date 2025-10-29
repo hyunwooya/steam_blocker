@@ -16,7 +16,7 @@ Steam 커뮤니티에서 여러 사용자를 자동으로 차단하는 Python �
 2. 필요한 패키지를 설치합니다:
 
 ```bash
-pip install requests
+pip install requirements
 ```
 
 ## 사용법
