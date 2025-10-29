@@ -37,6 +37,42 @@ https://steamcommunity.com/profiles/#################/
 ```
 
 2. `config.json` 파일에서 세션 정보만 설정:
+
+이 값들은 **스팀 웹사이트에 로그인할 때 사용되는 브라우저의 쿠키(Cookie) 값**입니다. 쉽게 말해, 이 프로그램이 사용자 본인인 것처럼 스팀에 접속하기 위해 필요한 '인증 티켓'입니다.
+
+이 값들은 **절대로 다른 사람에게 노출해서는 안 됩니다.** 비밀번호와 동일하게 취급해야 합니다.
+
+---
+
+## 🍪 쿠키 값 찾는 방법 (Chrome 기준)
+
+다른 브라우저(Edge, Firefox 등)도 F12 개발자 도구를 이용하는 방식은 거의 동일합니다.
+
+1.  **스팀 커뮤니티 사이트 접속 및 로그인**
+    * [https://steamcommunity.com/](https://steamcommunity.com/)
+    * 여기에 먼저 로그인합니다.
+
+2.  **개발자 도구 열기**
+    * 사이트에 접속된 상태에서 키보드에서 **F12** 키를 누릅니다. (또는 마우스 오른쪽 클릭 > '검사')
+
+3.  **Application (애플리케이션) 탭 이동**
+    * 개발자 도구 상단 탭에서 **Application**을 클릭합니다. (만약 보이지 않으면 `>>` 화살표를 눌러 찾아보세요.)
+    * (Firefox의 경우 'Storage'(저장소) 탭일 수 있습니다.)
+
+4.  **쿠키 값 확인**
+    * 왼쪽 메뉴에서 **Storage** (저장소) > **Cookies** (쿠키)를 차례대로 펼칩니다.
+    * `https://steamcommunity.com`을 클릭합니다.
+    * 오른쪽에 쿠키 목록이 나타납니다.
+
+5.  **값 찾기 및 복사**
+    * **`sessionid` 찾기:** 'Name' 열에서 `sessionid`를 찾아 'Value' 열에 있는 값을 복사합니다. 이 값을 `config.json`의 `"session_id"`에 붙여넣습니다.
+    * **`steamLoginSecure` 찾기:** 'Name' 열에서 `steamLoginSecure`를 찾아 'Value' 열에 있는 값을 복사합니다. 이 값을 `config.json`의 `"steam_login_secure"`에 붙여넣습니다.
+
+
+
+이 두 값을 `config.json` 파일에 정확히 입력하면 프로그램이 사용자의 계정으로 로그인하여 작동할 수 있게 됩니다.
+
+
 ```json
 {
     "session_id": "여기에_실제_세션_ID_입력",
